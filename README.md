@@ -36,11 +36,11 @@ Then write your change in plain words, for example:
 
 ## Things you'll need to fill in
 
-Look for anything in [square brackets] on the page. Right now that's:
-- The enrollment dates (top of the page and the last line before the footer)
+Look for anything in [square brackets] on the page. Right now that's mainly:
+- The enrollment dates are set to November 6 to 12 (top of the page and the last line before the footer). To change them, edit `bannerText` and `closingText` in the settings.
 - The checkout links for monthly and annual
 - How people should inquire about private support (in the FAQ)
-- The privacy and terms links
+- The terms and conditions link is set. If there's a separate privacy policy page, add it to the footer.
 
 All of these except the private support wording are in the SETTINGS block at the bottom of `index.html`. Ask your AI: "Put my checkout link [paste link] into the settings."
 
