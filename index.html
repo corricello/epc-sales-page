@@ -499,7 +499,7 @@ const SETTINGS = {
 document.querySelectorAll("[data-cfg]").forEach(el => el.textContent = SETTINGS[el.dataset.cfg]);
 document.querySelectorAll("[data-cta]").forEach(el => {
   const url = el.dataset.cta === "annual" ? SETTINGS.annualCheckoutUrl : SETTINGS.monthlyCheckoutUrl;
-  if (url && url !== "#") el.href = url;
+  if (url && url !== "#") { el.href = url; el.target = "_blank"; el.rel = "noopener"; } // checkout opens in a new tab
 });
 document.querySelectorAll("[data-cfg-href]").forEach(el => el.href = SETTINGS[el.dataset.cfgHref]);
 document.getElementById("banner").textContent = SETTINGS.bannerText;
