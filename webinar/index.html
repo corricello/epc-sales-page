@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Child Compass Free Masterclass</title>
+<meta name="description" content="A free live masterclass for parents raising kids with unique needs. Learn the Child Compass, a simple framework for seeing your child's needs more clearly and knowing where to focus first.">
+<meta name="robots" content="noindex, nofollow"><!-- DRAFT: remove this line when the page goes live so Google can find it -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO UPDATE THIS PAGE (for Lisa, or for Lisa's AI)
+  1. The webinar date, time and registration link live in the SETTINGS block at the very bottom of this file.
+     Change them there and every place on the page updates.
+  2. All the words are plain text inside the <section> blocks. Each section starts with a comment like
+     "SECTION: Hero". Edit the text between the tags. Leave the tags themselves alone.
+  3. Colors live in the :root block just below. Change a value and the whole page follows.
+  4. Anything in [square brackets] is a placeholder that still needs a real answer.
+  5. This page shares its fonts and photo with the sales page (the "fonts" folder and lisa.jpg one level up).
+-->
+
+<style>
+/* Glacial Indifference (Lisa's brand body font, SIL Open Font License). Falls back to Jost if the files are missing. */
+@font-face{font-family:"Glacial Indifference";src:url("../fonts/GlacialIndifference-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Glacial Indifference";src:url("../fonts/GlacialIndifference-Italic.otf") format("opentype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Glacial Indifference";src:url("../fonts/GlacialIndifference-Bold.otf") format("opentype");font-weight:700 900;font-style:normal;font-display:swap}
+:root{
+  /* Colors (Lisa's brand palette) */
+  --ink:#3D214B;          /* main text + dark bands (deep plum) */
+  --ink-soft:#6E4E7C;     /* secondary text */
+  --primary:#3D417B;      /* buttons, top bar, labels (navy) */
+  --primary-dark:#2E3162;
+  --accent:#A366C5;       /* icons, arrows, numbers (purple) */
+  --lavender:#F5E4FB;
+  --sky:#E4EFFA;
+  --butter:#FFFADE;
+  --cream:#FFFEF9;
+  --line:#E7D9EE;
+
+  /* Fonts */
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Glacial Indifference","Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.wrap-wide{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:68px 0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:-.005em}
+h1{font-size:clamp(38px,5.6vw,60px)}
+h2{font-size:clamp(30px,4.6vw,44px);text-wrap:balance}
+h3{font-size:25px}
+p{margin:0 0 1.1em;text-wrap:pretty}
+.center{text-align:center}
+.small{font-size:15px;color:var(--ink-soft)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);background:#fff;padding:8px 16px;border-radius:10px;box-shadow:0 2px 10px rgba(61,65,123,.14);border:1px solid rgba(61,65,123,.15);margin-bottom:18px}
+.lede{font-size:21px;color:var(--ink-soft)}
+.bg-lav{background:var(--lavender)}
+.dark{background:var(--primary);color:#fff}
+.dark h2{color:#fff}
+.dark p{color:#E4E6F8}
+mark{background:linear-gradient(transparent 8%,#F0D2FA 8%,#F0D2FA 94%,transparent 94%);color:inherit;padding:0 .18em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;text-transform:uppercase;letter-spacing:.06em;padding:18px 34px;border-radius:999px;transition:background .15s,transform .15s;text-align:center}
+.btn::after,.banner a::after{content:" \2192"}
+.btn:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn.block{display:block}
+.dark .btn,.final .btn{background:#fff;color:var(--primary)}
+.dark .btn:hover,.final .btn:hover{background:var(--lavender)}
+
+/* Top banner */
+.banner{position:sticky;top:0;z-index:50;background:var(--primary);color:#fff;font-size:15px;font-weight:600;padding:9px 16px;display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:46px;text-align:center}
+.banner a{display:none;background:#fff;color:var(--primary);text-decoration:none;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;padding:7px 16px;border-radius:999px}
+.banner.show a{display:inline-block}
+
+/* Hero */
+.hero{position:relative;padding:24px 0 52px;background:linear-gradient(180deg,#F9F8FF,#EFD1F9)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero h1{margin-bottom:.4em;font-size:clamp(36px,4.6vw,54px)}
+.hero h1 em{font-weight:700}
+.hero .lede{max-width:560px}
+.reg-card{background:#fff;border-radius:24px;padding:24px 28px 22px;box-shadow:0 18px 50px rgba(61,65,123,.18);border:1px solid #fff}
+.reg-card h2{font-size:27px;margin-bottom:.35em}
+.host-row{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.host-row img{flex:0 0 60px;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 22%;box-shadow:0 0 0 3px var(--lavender)}
+.host-tag{display:block;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);line-height:1.2}
+.host-row b{display:block;font-size:20px;line-height:1.25;color:var(--ink)}
+.host-row small{display:block;font-size:14.5px;color:var(--ink-soft);line-height:1.3}
+.mobile-cta{display:none;margin:22px 0 0}
+.hero-quote strong{font-weight:800;font-style:normal}
+.facts{list-style:none;padding:0;margin:0 0 16px}
+.facts li{display:flex;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.3}
+.facts li:last-child{border-bottom:0}
+.facts .ico{flex:0 0 34px;width:34px;height:34px;border-radius:12px;background:var(--lavender);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.facts .ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.facts b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.wave{position:absolute;left:0;right:0;bottom:-1px;line-height:0}
+.wave svg{display:block;width:100%;height:46px}
+
+/* Hero testimonial */
+.hero-quote{margin:26px 0 0;max-width:560px;background:rgba(255,255,255,.8);border:1px solid #fff;border-radius:18px;padding:18px 22px;box-shadow:0 8px 24px rgba(61,65,123,.08)}
+.hero-quote p{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35;margin:0 0 6px}
+.hero-quote cite{font-style:normal;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--primary)}
+
+/* Credibility banner (like a "featured in" strip) */
+.trust{background:var(--cream);padding:18px 0 64px}
+.trust-label{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin:0;padding-right:28px;text-align:left;line-height:1.5}
+.trust-row{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 0}
+.trust-item{display:flex;align-items:center;gap:11px;padding:0 24px;border-left:1px solid var(--line);text-align:left}
+.t-ico{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:var(--lavender);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.t-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.t-txt{font-size:14.5px;line-height:1.25;color:var(--ink-soft)}
+.t-txt b{display:block;font-family:var(--serif);font-size:20px;font-weight:700;color:var(--primary);line-height:1.1}
+
+/* Lists */
+ul.plain{list-style:none;padding:0;margin:0 0 1.2em}
+ul.plain li{padding:11px 0 11px 40px;position:relative;border-bottom:1px solid var(--line)}
+ul.plain li:last-child{border-bottom:0}
+ul.plain li::before{position:absolute;left:4px;top:12px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+ul.yes li::before{content:"\2713";background:var(--accent)}
+ul.no li::before{content:"\2715";background:#D64545}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{background:#fff;border-radius:22px;padding:30px;border:1px solid var(--line)}
+.card h3{margin-bottom:.4em}
+
+/* Compass steps */
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 26px;transition:transform .25s,background .25s,box-shadow .25s,opacity .25s}
+.step .num{flex:0 0 58px;width:58px;height:58px;border-radius:50%;background:var(--lavender);display:flex;align-items:center;justify-content:center}
+.step .num svg{width:46px;height:46px}
+.num .ring{fill:none;stroke:#D9BDF0;stroke-width:1.5}
+.num .pt{fill:#D9BDF0}
+.num .pt.on{fill:var(--primary)}
+.num .hub{fill:#fff;stroke:#D9BDF0;stroke-width:1.5}
+.num .hub.on{fill:var(--primary);stroke:var(--primary)}
+.step h3{font-size:24px;margin-bottom:.15em}
+.step .q{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.step p{margin:0;color:var(--ink-soft);font-size:17px}
+.steps:hover .step:not(:hover){opacity:.6}
+.step:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-4px);box-shadow:0 16px 36px rgba(61,65,123,.28)}
+.step:hover h3,.step:hover p{color:#fff}
+.step:hover .q{color:#E2ACF5}
+.step:hover .num{background:rgba(255,255,255,.18)}
+.step:hover .num .ring,.step:hover .num .hub{stroke:rgba(255,255,255,.5)}
+.step:hover .num .pt{fill:rgba(255,255,255,.4)}
+.step:hover .num .pt.on,.step:hover .num .hub.on{fill:#fff;stroke:#fff}
+.step.big{background:#fff;border:2px solid var(--primary)}
+
+/* Organizer */
+.org{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:#fff;border:2px solid var(--primary);border-radius:26px;padding:34px}
+.org .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--primary);color:#fff;border-radius:999px;padding:3px 12px;margin-bottom:10px}
+.org-ico{width:96px;height:96px;border-radius:24px;background:var(--lavender);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.org-ico svg{width:48px;height:48px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.org h3{margin-bottom:.3em}
+.org p{margin:0}
+
+/* How it works (slim row) */
+.flow{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:17px;color:var(--ink-soft);text-align:center}
+.flow b{color:var(--ink)}
+.flow .arr{color:var(--accent);font-weight:700}
+.flow-label{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-right:6px}
+
+/* Lisa */
+.arch{width:min(380px,86%);aspect-ratio:10/11;margin:0 auto 34px;border-radius:999px 999px 24px 24px;overflow:hidden;background:linear-gradient(160deg,var(--lavender),var(--sky));box-shadow:0 18px 44px rgba(163,102,197,.22),0 0 0 8px #fff;display:flex;padding:0}
+.arch img{flex:1 1 100%;width:100%;height:100%;min-width:0;object-fit:cover;object-position:50% 30%;display:block}
+
+/* FAQ */
+details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;padding:0 22px}
+summary{cursor:pointer;font-weight:700;padding:18px 0;list-style:none;position:relative;padding-right:30px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:26px;color:var(--accent);font-weight:400}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--ink-soft);padding-bottom:6px}
+
+.final{background:var(--primary);color:#fff;padding:84px 0}
+.final h2{color:#fff}
+.final .lede{color:#DADCF5}
+.final .small{color:#C5C8EC}
+footer{padding:40px 0 60px;font-size:14.5px;color:var(--ink-soft);text-align:center}
+footer a{color:var(--ink-soft)}
+
+@media (max-width:820px){
+  body{font-size:17.5px}
+  section{padding:52px 0}
+  .hero{padding:40px 0 100px}
+  .hero-grid,.two{grid-template-columns:1fr}
+  .mobile-cta{display:block}
+  .flow{flex-direction:column}
+  .flow .arr{transform:rotate(90deg)}
+  .trust{padding:18px 0 48px}
+  .trust-label{flex:0 0 100%;text-align:center;padding:0 0 4px}
+  .trust-label br{display:none}
+  .trust-item{border-left:0;padding:0 12px;flex:0 0 50%}
+  .trust-row{gap:14px 0}
+  .org{grid-template-columns:1fr;padding:26px 22px}
+  .btn{font-size:14px;padding:16px 24px;line-height:1.4}
+  .step{padding:18px 20px;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION: Top bar -->
+<div class="banner" id="bannerBar"><span id="banner"></span><a data-cta href="#register">Save my seat</a></div>
+
+<!-- SECTION: Hero + registration box -->
+<header class="hero" id="register">
+  <div class="wrap-wide">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Free live masterclass</div>
+        <h1>See your child's needs more clearly&hellip; <em>and know where to focus first.</em></h1>
+        <p class="lede">The Child Compass is a simple framework for making sense of everything you already know about your child. Join me live and learn how to use it. It's made for parents raising kids with unique needs.</p>
+        <p class="mobile-cta"><a class="btn block" data-cta href="#">Save my free seat</a></p>
+        <blockquote class="hero-quote">
+          <p>"She didn't hesitate to support us and <strong>immediately helped us plan next steps</strong>. &hellip; We no longer feel alone in this journey."</p>
+          <cite>Lisa</cite>
+        </blockquote>
+      </div>
+      <div class="reg-card">
+        <div class="host-row">
+          <img src="../lisa.jpg" alt="Lisa">
+          <div><span class="host-tag">Your host</span><b>Lisa</b><small>Creator of the Child Compass</small></div>
+        </div>
+        <h2>Save your free seat</h2>
+        <ul class="facts">
+          <li><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>When</b><span id="when"></span></span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>How long</b>About 60 minutes, plus time for your questions</span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><b>Where</b>Live online. You'll get the link by email.</span></li>
+        </ul>
+        <a class="btn block" data-cta href="#">Save my seat</a>
+        <p class="small center" style="margin:14px 0 0">Takes about 30 seconds. At sign-up you can also add the optional Child Compass Organizer.</p>
+        <p class="small center" style="margin:8px 0 0;font-size:13px">By signing up, you'll receive emails about the masterclass and from Lisa. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,35 C240,80 480,0 720,28 C960,56 1200,76 1440,24 L1440,70 L0,70 Z" fill="#FFFEF9"/></svg></div>
+</header>
+
+<!-- SECTION: Why parents trust Lisa (credibility banner) -->
+<div class="trust">
+  <div class="wrap-wide">
+    <div class="trust-row">
+      <p class="trust-label">Why parents<br>trust Lisa</p>
+      <div class="trust-item"><span class="t-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></span><span class="t-txt"><b>Master's degree</b>Special Education</span></div>
+      <div class="trust-item"><span class="t-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5M12 5V2"/></svg></span><span class="t-txt"><b>Former licensed</b>K-12 teacher</span></div>
+      <div class="trust-item"><span class="t-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="t-txt"><b>20+ years</b>in education</span></div>
+      <div class="trust-item"><span class="t-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="t-txt"><b>Parent of two</b>kids with unique needs</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: The problem (puzzle pieces) -->
+<section class="dark">
+  <div class="wrap">
+    <h2>You have hundreds of puzzle pieces. Nobody has shown you how they fit together.</h2>
+    <p>Teachers. Doctors. Therapists. Evaluations. School meetings. Google searches. Social media. Family. And, of course, years of knowing your own child.</p>
+    <p>So why don't you know what to do?</p>
+    <p style="font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(26px,3.6vw,36px);line-height:1.25;color:#fff">Your child's biggest struggle right now isn't the whole picture of your child.</p>
+    <p>The first step toward knowing what to do is seeing the whole picture. That's what the Child Compass is for.</p>
+  </div>
+</section>
+
+<!-- SECTION: Who it's for -->
+<section>
+  <div class="wrap-wide">
+    <div class="center" style="max-width:720px;margin:0 auto 34px">
+      <div class="eyebrow">Who this is for</div>
+      <h2>Made for parents who know something isn't working, and are overwhelmed by what they're supposed to do about it.</h2>
+    </div>
+    <div class="two">
+      <div class="card">
+        <h3>This masterclass is for you if:</h3>
+        <ul class="plain yes">
+          <li>You're raising a child with unique needs: big emotions, sensory needs, learning differences, executive functioning or school struggles.</li>
+          <li>You have a diagnosis, or you don't have one yet.</li>
+          <li>You're drowning in information and want to see how it all connects.</li>
+          <li>You'd like to know where to focus first, instead of trying everything at once.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>It's probably not for you if:</h3>
+        <ul class="plain no">
+          <li>You're hoping for a quick fix for one behavior in an hour.</li>
+          <li>You want a 47-item to-do list of things to try.</li>
+          <li>You're looking for medical or therapeutic advice. This is education, not a replacement for professional care.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow">
+      <span class="flow-label">How it works</span>
+      <span><b>1.</b> Save your seat</span><span class="arr">&rarr;</span>
+      <span><b>2.</b> Get your link by email</span><span class="arr">&rarr;</span>
+      <span><b>3.</b> Join me live with a notebook</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: What you'll learn -->
+<section class="bg-lav">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:34px">
+      <div class="eyebrow">What you'll learn</div>
+      <h2>Five questions that help you see your child more clearly.</h2>
+      <p class="lede">We're not trying to solve everything in one session. We're looking for clues, patterns and the places where something suddenly makes more sense.</p>
+    </div>
+    <div class="steps">
+      <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt on"/><polygon points="50,28 28,33 28,23" class="pt"/><polygon points="28,50 23,28 33,28" class="pt"/><polygon points="6,28 28,23 28,33" class="pt"/><circle cx="28" cy="28" r="4.5" class="hub"/></svg></div><div><span class="q">North &middot; Who is my child?</span><h3>Strengths</h3><p>Start with who's in front of you, not with what's wrong. Strengths are quiet, and they tell you what you can build on.</p></div></div>
+      <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt"/><polygon points="50,28 28,33 28,23" class="pt on"/><polygon points="28,50 23,28 33,28" class="pt"/><polygon points="6,28 28,23 28,33" class="pt"/><circle cx="28" cy="28" r="4.5" class="hub"/></svg></div><div><span class="q">East &middot; How does my child experience the world?</span><h3>Regulation</h3><p>Learn why your child can seem like a different kid on different days, and why triggers are information.</p></div></div>
+      <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt"/><polygon points="50,28 28,33 28,23" class="pt"/><polygon points="28,50 23,28 33,28" class="pt on"/><polygon points="6,28 28,23 28,33" class="pt"/><circle cx="28" cy="28" r="4.5" class="hub"/></svg></div><div><span class="q">South &middot; Where does my child need support?</span><h3>Areas of Opportunity</h3><p>Move from "what's wrong?" to the specific places where more understanding, practice or support may help.</p></div></div>
+      <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt"/><polygon points="50,28 28,33 28,23" class="pt"/><polygon points="28,50 23,28 33,28" class="pt"/><polygon points="6,28 28,23 28,33" class="pt on"/><circle cx="28" cy="28" r="4.5" class="hub"/></svg></div><div><span class="q">West &middot; What support will help my child thrive?</span><h3>Supports</h3><p>Think beyond "I need to find another expert" to the supports that match what your child actually needs.</p></div></div>
+      <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt"/><polygon points="50,28 28,33 28,23" class="pt"/><polygon points="28,50 23,28 33,28" class="pt"/><polygon points="6,28 28,23 28,33" class="pt"/><circle cx="28" cy="28" r="4.5" class="hub on"/></svg></div><div><span class="q">Center &middot; Where do we go from here?</span><h3>Next Steps</h3><p>Not ten new strategies. One place to begin.</p></div></div>
+      <div class="step big" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt on"/><polygon points="50,28 28,33 28,23" class="pt on"/><polygon points="28,50 23,28 33,28" class="pt on"/><polygon points="6,28 28,23 28,33" class="pt on"/><circle cx="28" cy="28" r="4.5" class="hub on"/></svg></div><div><span class="q">The aha moment</span><h3>See how the pieces connect</h3><p>I'll walk through an example of a child who refuses to do homework, and show you how changing the question changes what you see. The challenge you can see isn't always the need underneath it.</p></div></div>
+    </div>
+    <p class="center" style="margin:34px 0 0"><a class="btn" data-cta href="#">Save my free seat</a></p>
+  </div>
+</section>
+
+<!-- SECTION: Optional Organizer -->
+<section>
+  <div class="wrap">
+    <div class="org">
+      <div class="org-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg></div>
+      <div>
+        <span class="tag">Optional add-on</span>
+        <h3>Follow along with the Child Compass Organizer</h3>
+        <p>The Organizer takes you much deeper into each of the five areas, so you can apply the framework to your own child during the masterclass and keep using it afterward. You can add it for $17 when you sign up. Don't want it? A notebook works fine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: Meet Lisa -->
+<section class="bg-lav">
+  <div class="wrap center">
+    <div class="arch"><img src="../lisa.jpg" alt="Lisa"></div>
+    <div class="eyebrow">Your host</div>
+    <h2>I built the support I wish I'd had.</h2>
+    <p>I'm Lisa. I'm a parent of two kids with unique needs, a former licensed K-12 teacher with a master's degree in special education, and an advocate who has spent more than 20 years in education, sitting on both sides of the table.</p>
+    <p>One of the hardest parts of my own experience was feeling completely alone. I created the Child Compass to help parents see their child clearly, and I'd love to show you how it works.</p>
+  </div>
+</section>
+
+<!-- SECTION: Final CTA -->
+<section class="final">
+  <div class="wrap center">
+    <h2>Stop trying to hold all the pieces at once.</h2>
+    <p class="lede">Join me for the Child Compass Free Masterclass and leave knowing where to focus first.</p>
+    <p><a class="btn" data-cta href="#">Save my free seat</a></p>
+    <p class="small" id="closing"></p>
+  </div>
+</section>
+
+<!-- SECTION: FAQ -->
+<section class="bg-lav">
+  <div class="wrap">
+    <h2 class="center">Questions</h2>
+    <details>
+      <summary>Is it really free?</summary>
+      <p>Yes. The masterclass is free. At sign-up you'll be offered the optional Child Compass Organizer for $17, and you don't need it to take part. A notebook works fine.</p>
+    </details>
+    <details>
+      <summary>Will you be selling something?</summary>
+      <p>At the end, I'll tell you about my membership, the Empowered Parent Collective, for parents who want practical help with what the Compass reveals. There's no pressure, and the masterclass is useful on its own.</p>
+    </details>
+    <details>
+      <summary>Does my child need a diagnosis?</summary>
+      <p>No. The Child Compass works whether your child has a diagnosis or not.</p>
+    </details>
+    <details>
+      <summary>What if I can't make it live?</summary>
+      <p>[Add the replay details once Lisa has decided.]</p>
+    </details>
+    <details>
+      <summary>What should I bring?</summary>
+      <p>A notebook and pen, or your Child Compass Organizer if you've added it. You'll answer one reflection question for each of the five areas.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> The Empowered Parent Collective. All rights reserved.</p>
+    <p>This masterclass provides education and support and is not a substitute for professional medical, psychological, educational or therapeutic advice.</p>
+    <p><a href="#" data-cfg-href="termsUrl" target="_blank" rel="noopener">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<!-- SETTINGS: change these and the whole page updates -->
+<script>
+const SETTINGS = {
+  webinarDate: "Thursday, November 5",
+  webinarTime: "[time and time zone]",
+  registerUrl: "#",   // [paste the registration link]
+  termsUrl: "https://lisacorricello.ac-page.com/empowered-parent-collective-terms-conditions"
+};
+
+// ---- Nothing below needs editing ----
+document.getElementById("when").textContent = SETTINGS.webinarDate + " at " + SETTINGS.webinarTime;
+document.getElementById("banner").textContent = "Free masterclass: " + SETTINGS.webinarDate + " at " + SETTINGS.webinarTime;
+document.getElementById("closing").textContent = SETTINGS.webinarDate + " at " + SETTINGS.webinarTime + ". Free to attend.";
+document.querySelectorAll("[data-cta]").forEach(el => {
+  if (SETTINGS.registerUrl && SETTINGS.registerUrl !== "#") { el.href = SETTINGS.registerUrl; el.target = "_blank"; el.rel = "noopener"; }
+});
+document.querySelectorAll("[data-cfg-href]").forEach(el => el.href = SETTINGS[el.dataset.cfgHref]);
+window.addEventListener("scroll", () => document.getElementById("bannerBar").classList.toggle("show", scrollY > 500), {passive:true});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
