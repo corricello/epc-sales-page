@@ -62,6 +62,7 @@ p{margin:0 0 1.1em;text-wrap:pretty}
 .bg-lav{background:var(--lavender)}
 .dark{background:var(--primary);color:#fff}
 .dark h2{color:#fff}
+.dark .big-line{font-family:var(--serif);font-weight:700;font-size:clamp(28px,3.8vw,40px);line-height:1.2;color:#fff;margin-top:.4em}
 .dark p{color:#E4E6F8}
 mark{background:linear-gradient(transparent 8%,#F0D2FA 8%,#F0D2FA 94%,transparent 94%);color:inherit;padding:0 .18em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
@@ -122,7 +123,7 @@ ul.plain{list-style:none;padding:0;margin:0 0 1.2em}
 ul.plain li{padding:11px 0 11px 40px;position:relative;border-bottom:1px solid var(--line)}
 ul.plain li:last-child{border-bottom:0}
 ul.plain li::before{position:absolute;left:4px;top:12px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
-ul.yes li::before{content:"\2713";background:var(--accent)}
+ul.yes li::before{content:"\2713";background:#5B9F6A}
 ul.no li::before{content:"\2715";background:#D64545}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .card{background:#fff;border-radius:22px;padding:30px;border:1px solid var(--line)}
@@ -152,18 +153,11 @@ ul.no li::before{content:"\2715";background:#D64545}
 .step.big{background:#fff;border:2px solid var(--primary)}
 
 /* Organizer */
-.org{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:#fff;border:2px solid var(--primary);border-radius:26px;padding:34px}
+.org{display:grid;grid-template-columns:.95fr 1.05fr;gap:30px;align-items:center;background:#fff;border:2px solid var(--primary);border-radius:26px;padding:34px}
 .org .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--primary);color:#fff;border-radius:999px;padding:3px 12px;margin-bottom:10px}
-.org-ico{width:96px;height:96px;border-radius:24px;background:var(--lavender);color:var(--accent);display:flex;align-items:center;justify-content:center}
-.org-ico svg{width:48px;height:48px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.org-img{width:100%;height:auto;display:block}
 .org h3{margin-bottom:.3em}
 .org p{margin:0}
-
-/* How it works (slim row) */
-.flow{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:17px;color:var(--ink-soft);text-align:center}
-.flow b{color:var(--ink)}
-.flow .arr{color:var(--accent);font-weight:700}
-.flow-label{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-right:6px}
 
 /* Lisa */
 .arch{width:min(380px,86%);aspect-ratio:10/11;margin:0 auto 34px;border-radius:999px 999px 24px 24px;overflow:hidden;background:linear-gradient(160deg,var(--lavender),var(--sky));box-shadow:0 18px 44px rgba(163,102,197,.22),0 0 0 8px #fff;display:flex;padding:0}
@@ -190,8 +184,6 @@ footer a{color:var(--ink-soft)}
   .hero{padding:40px 0 100px}
   .hero-grid,.two{grid-template-columns:1fr}
   .mobile-cta{display:block}
-  .flow{flex-direction:column}
-  .flow .arr{transform:rotate(90deg)}
   .trust{padding:18px 0 48px}
   .trust-label{flex:0 0 100%;text-align:center;padding:0 0 4px}
   .trust-label br{display:none}
@@ -261,7 +253,8 @@ footer a{color:var(--ink-soft)}
     <p>Teachers. Doctors. Therapists. Evaluations. School meetings. Google searches. Social media. Family. And, of course, years of knowing your own child.</p>
     <p>So why don't you know what to do?</p>
     <p style="font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(26px,3.6vw,36px);line-height:1.25;color:#fff">Your child's biggest struggle right now isn't the whole picture of your child.</p>
-    <p>The first step toward knowing what to do is seeing the whole picture. That's what the Child Compass is for.</p>
+    <p>The first step toward knowing what to do is seeing the whole picture.</p>
+    <p class="big-line">That's what the Child Compass is for.</p>
   </div>
 </section>
 
@@ -270,7 +263,7 @@ footer a{color:var(--ink-soft)}
   <div class="wrap-wide">
     <div class="center" style="max-width:720px;margin:0 auto 34px">
       <div class="eyebrow">Who this is for</div>
-      <h2>Made for parents who know something isn't working, and are overwhelmed by what they're supposed to do about it.</h2>
+      <h2><em>Made for parents who know something isn't working, and are overwhelmed by what they're supposed to do about it.</em></h2>
     </div>
     <div class="two">
       <div class="card">
@@ -291,12 +284,6 @@ footer a{color:var(--ink-soft)}
         </ul>
       </div>
     </div>
-    <div class="flow">
-      <span class="flow-label">How it works</span>
-      <span><b>1.</b> Save your seat</span><span class="arr">&rarr;</span>
-      <span><b>2.</b> Get your link by email</span><span class="arr">&rarr;</span>
-      <span><b>3.</b> Join me live with a notebook</span>
-    </div>
   </div>
 </section>
 
@@ -306,7 +293,7 @@ footer a{color:var(--ink-soft)}
     <div class="center" style="margin-bottom:34px">
       <div class="eyebrow">What you'll learn</div>
       <h2>Five questions that help you see your child more clearly.</h2>
-      <p class="lede">We're not trying to solve everything in one session. We're looking for clues, patterns and the places where something suddenly makes more sense.</p>
+      <p class="lede">We're not trying to solve everything in one session&hellip;<br>we're looking for clues, patterns and the places where something suddenly makes more sense.</p>
     </div>
     <div class="steps">
       <div class="step" tabindex="0"><div class="num"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" class="ring"/><polygon points="28,6 33,28 23,28" class="pt on"/><polygon points="50,28 28,33 28,23" class="pt"/><polygon points="28,50 23,28 33,28" class="pt"/><polygon points="6,28 28,23 28,33" class="pt"/><circle cx="28" cy="28" r="4.5" class="hub"/></svg></div><div><span class="q">North &middot; Who is my child?</span><h3>Strengths</h3><p>Start with who's in front of you, not with what's wrong. Strengths are quiet, and they tell you what you can build on.</p></div></div>
@@ -324,7 +311,7 @@ footer a{color:var(--ink-soft)}
 <section>
   <div class="wrap">
     <div class="org">
-      <div class="org-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg></div>
+      <img class="org-img" src="child-compass-mockup.webp" alt="The Child Compass Organizer pages">
       <div>
         <span class="tag">Optional add-on</span>
         <h3>Follow along with the Child Compass Organizer</h3>
