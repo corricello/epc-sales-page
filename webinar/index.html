@@ -213,7 +213,7 @@ footer a{color:var(--ink-soft)}
   <div class="wrap-wide">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Free live masterclass</div>
+        <div class="eyebrow" id="eyebrow">Free live masterclass</div>
         <h1>See your child's needs more clearly&hellip; <em>and know where to focus first.</em></h1>
         <p class="lede">The Child Compass is a simple framework for making sense of everything you already know about your child. Join me live and learn how to use it. It's made for parents raising kids with unique needs.</p>
         <p class="mobile-cta"><a class="btn block" data-cta href="#">Save my free seat</a></p>
@@ -227,14 +227,14 @@ footer a{color:var(--ink-soft)}
           <img src="../lisa.jpg" alt="Lisa">
           <div><span class="host-tag">Your host</span><b>Lisa</b><small>Creator of the Child Compass</small></div>
         </div>
-        <h2>Save your free seat</h2>
+        <h2 id="regTitle">Save your free seat</h2>
         <ul class="facts">
           <li><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>When</b><span id="when"></span></span></li>
           <li><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>How long</b>About 60 minutes, plus time for your questions</span></li>
           <li><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><b>Where</b>Live online. You'll get the link by email.</span></li>
         </ul>
         <a class="btn block" data-cta href="#">Save my seat</a>
-        <p class="small center" style="margin:14px 0 0;font-size:13px">By signing up, you'll receive emails about the masterclass and from Lisa. Unsubscribe anytime.</p>
+        <p class="small center" id="consent" style="margin:14px 0 0;font-size:13px">By signing up, you'll receive emails about the masterclass and from Lisa. Unsubscribe anytime.</p>
       </div>
     </div>
   </div>
@@ -390,17 +390,32 @@ footer a{color:var(--ink-soft)}
 const SETTINGS = {
   webinarDate: "Thursday, November 5",
   webinarTime: "5pm PT / 8pm ET",
+  eventOver: true,   // true = the live masterclass has ended (buttons go to the waitlist). Set to false for a new masterclass.
+  waitlistUrl: "https://lisacorricello.activehosted.com/f/53",   // ActiveCampaign waitlist form for the Empowered Parent Collective
   registerUrl: "https://bit.ly/childcompasswebinar",   // Lisa's link; she can repoint it to the finished form
   termsUrl: "https://lisacorricello.ac-page.com/empowered-parent-collective-terms-conditions"
 };
 
 // ---- Nothing below needs editing ----
-document.getElementById("when").textContent = SETTINGS.webinarDate + " at " + SETTINGS.webinarTime;
-document.getElementById("banner").textContent = "Free masterclass: " + SETTINGS.webinarDate + " at " + SETTINGS.webinarTime;
-document.getElementById("closing").textContent = SETTINGS.webinarDate + " at " + SETTINGS.webinarTime + ". Free to attend.";
+const OVER = SETTINGS.eventOver;
+document.getElementById("when").textContent = SETTINGS.webinarDate + " at " + SETTINGS.webinarTime + (OVER ? " (ended)" : "");
+document.getElementById("banner").textContent = OVER
+  ? "This live masterclass has ended. Join the waitlist to hear what's next."
+  : "Free masterclass: " + SETTINGS.webinarDate + " at " + SETTINGS.webinarTime;
+document.getElementById("closing").textContent = OVER
+  ? "Join the waitlist to be first to hear when the Empowered Parent Collective opens again."
+  : SETTINGS.webinarDate + " at " + SETTINGS.webinarTime + ". Free to attend.";
 document.querySelectorAll("[data-cta]").forEach(el => {
-  if (SETTINGS.registerUrl && SETTINGS.registerUrl !== "#") { el.href = SETTINGS.registerUrl; el.target = "_blank"; el.rel = "noopener"; }
+  if (OVER) {
+    el.href = SETTINGS.waitlistUrl; el.target = "_blank"; el.rel = "noopener"; // masterclass over: send people to the waitlist
+    el.textContent = "Join the waitlist";
+  } else if (SETTINGS.registerUrl && SETTINGS.registerUrl !== "#") { el.href = SETTINGS.registerUrl; el.target = "_blank"; el.rel = "noopener"; }
 });
+if (OVER) {
+  document.getElementById("eyebrow").textContent = "This masterclass has ended";
+  document.getElementById("regTitle").textContent = "Join the waitlist";
+  document.getElementById("consent").hidden = true;
+}
 document.querySelectorAll("[data-cfg-href]").forEach(el => el.href = SETTINGS[el.dataset.cfgHref]);
 window.addEventListener("scroll", () => document.getElementById("bannerBar").classList.toggle("show", scrollY > 500), {passive:true});
 document.getElementById("year").textContent = new Date().getFullYear();

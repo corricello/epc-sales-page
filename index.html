@@ -80,6 +80,7 @@ p{margin:0 0 1.1em}
 .btn.ghost{background:transparent;color:var(--primary);border:2px solid var(--primary)}
 .btn.ghost:hover{background:var(--primary);color:#fff}
 .small{font-size:15px;color:var(--ink-soft)}
+.closed-note{margin-top:14px;font-weight:700;color:var(--primary)}
 
 /* Top banner */
 .banner{position:sticky;top:0;z-index:50;background:var(--primary);color:#fff;font-size:15px;font-weight:600;padding:9px 16px;display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:46px}
@@ -237,6 +238,7 @@ footer a{color:var(--ink-soft)}
     <h1 class="it-h1">Know what to do next for your child&hellip;<br>without figuring it out all alone.</h1>
     <p class="lede">An online membership for parents raising kids with unique needs: practical tools, monthly coaching with Lisa and a community of parents who <u>actually</u> get it.</p>
     <p><a class="btn" data-cta="monthly" href="#join">Join as a Founding Member</a></p>
+    <p class="small closed-note" id="closedHero" hidden></p>
     <p class="trust">Created by Lisa, a former licensed K-12 teacher with a master's degree in special education and 20+ years in education.</p>
     <!-- Swap this quote for any testimonial from Lisa's checkout page. -->
     <div class="hero-proof">
@@ -432,7 +434,8 @@ footer a{color:var(--ink-soft)}
         <a class="btn" data-cta="monthly" href="#">Join monthly</a>
         <a class="btn ghost" data-cta="annual" href="#">Join annually</a>
       </div>
-      <p class="small" style="margin-top:20px">Join as a Founding Member and you'll keep your rate for as long as you remain a member.<br>Covered by a 30-day money-back guarantee.</p>
+      <p class="small closed-note" id="closedOffer" hidden style="margin-top:20px"></p>
+      <p class="small" id="offerNote" style="margin-top:20px">Join as a Founding Member and you'll keep your rate for as long as you remain a member.<br>Covered by a 30-day money-back guarantee.</p>
     </div>
   </div>
 </section>
@@ -501,20 +504,35 @@ const SETTINGS = {
   annualPrice: "670",
   monthlyCheckoutUrl: "https://nextlevellifewithlisa.thrivecart.com/the-empowered-parent-collective-2026/",   // one checkout page: members choose monthly or annual there
   annualCheckoutUrl: "https://nextlevellifewithlisa.thrivecart.com/the-empowered-parent-collective-2026/",    // same page as monthly
-  bannerText: "Enrollment is open November 6-12",
-  closingText: "Enrollment closes November 12 at 11:59pm EST.",
+  cartOpen: false,   // false = enrollment is closed (buttons go to the waitlist). Set to true when the cart opens again.
+  waitlistUrl: "https://lisacorricello.activehosted.com/f/53",   // ActiveCampaign waitlist form
+  nextOpen: "Winter 2027",   // shown while the cart is closed
+  bannerText: "Enrollment is open November 6-12",   // used when cartOpen is true
+  closingText: "Enrollment closes November 12 at 11:59pm EST.",   // used when cartOpen is true
   termsUrl: "https://lisacorricello.ac-page.com/empowered-parent-collective-terms-conditions"
 };
 
 // ---- Nothing below needs editing ----
 document.querySelectorAll("[data-cfg]").forEach(el => el.textContent = SETTINGS[el.dataset.cfg]);
+const OPEN = SETTINGS.cartOpen;
 document.querySelectorAll("[data-cta]").forEach(el => {
-  const url = el.dataset.cta === "annual" ? SETTINGS.annualCheckoutUrl : SETTINGS.monthlyCheckoutUrl;
-  if (url && url !== "#") { el.href = url; el.target = "_blank"; el.rel = "noopener"; } // checkout opens in a new tab
+  if (OPEN) {
+    const url = el.dataset.cta === "annual" ? SETTINGS.annualCheckoutUrl : SETTINGS.monthlyCheckoutUrl;
+    if (url && url !== "#") { el.href = url; el.target = "_blank"; el.rel = "noopener"; } // checkout opens in a new tab
+  } else {
+    el.href = SETTINGS.waitlistUrl; el.target = "_blank"; el.rel = "noopener"; // cart closed: send people to the waitlist
+    el.textContent = "Join the waitlist";
+    if (el.dataset.cta === "annual") el.style.display = "none";
+  }
 });
 document.querySelectorAll("[data-cfg-href]").forEach(el => el.href = SETTINGS[el.dataset.cfgHref]);
-document.getElementById("banner").textContent = SETTINGS.bannerText;
-document.getElementById("closing").textContent = SETTINGS.closingText;
+const closedMsg = "Enrollment is closed for now. Join the waitlist to be first in line when we open again (" + SETTINGS.nextOpen + ").";
+document.getElementById("banner").textContent = OPEN ? SETTINGS.bannerText : "Enrollment is closed for now. Join the waitlist for the next open.";
+document.getElementById("closing").textContent = OPEN ? SETTINGS.closingText : "Next enrollment opens " + SETTINGS.nextOpen + ".";
+if (!OPEN) {
+  ["closedHero", "closedOffer"].forEach(id => { const n = document.getElementById(id); n.textContent = closedMsg; n.hidden = false; });
+  document.getElementById("offerNote").hidden = true;
+}
 window.addEventListener("scroll", () => document.getElementById("bannerBar").classList.toggle("show", scrollY > 500), {passive:true});
 (function(){
   const track=document.getElementById("track"), dots=document.getElementById("dots");
